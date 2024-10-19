@@ -1,0 +1,7 @@
+{
+  "workspace.library": ["./types"],
+  "Lua.format.defaultConfig": {
+    "indent_style": "tab",
+    "indent_size": "2"
+  }
+}
