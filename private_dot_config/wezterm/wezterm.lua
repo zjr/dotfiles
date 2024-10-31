@@ -20,13 +20,7 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 30
 
 -- Font config
-config.font = wezterm.font_with_fallback({
-	{ family = "Iosevka Term Curly", stretch = "Expanded" },
-	{ family = "Symbols Nerd Font Mono", scale = 0.9 },
-})
-
 config.font_size = 13
-config.use_cap_height_to_scale_fallback_fonts = true
 
 -- Color scheme (switches for light/dark mode)
 local function scheme_for_appearance(appearance)
