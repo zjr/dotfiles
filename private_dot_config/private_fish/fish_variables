@@ -1,8 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR SHELL:/opt/homebrew/bin/fish
 SETUVAR --export BAT_THEME:Catppuccin\x2dfrappe
-SETUVAR --export EDITOR:nvim
+SETUVAR --export EDITOR:/opt/homebrew/bin/nvim
+SETUVAR SHELL:/opt/homebrew/bin/fish
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
