@@ -5,5 +5,14 @@ return {
 
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
-  opts = {},
+  opts = {
+    code = {
+      width = "full",
+      right_pad = 1,
+    },
+    heading = {
+      sign = true,
+      icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+    },
+  },
 }
