@@ -1,0 +1,14 @@
+{{ $email := promptString "email" "me@zjr.io" -}}
+
+[data]
+  email = {{ $email | quote }}
+
+[merge]
+  command = "nvim"
+  args = [
+    "-d",
+    "{{ "{{" }} .Destination {{ "}}" }}",
+    "{{ "{{" }} .Source {{ "}}" }}",
+    "{{ "{{" }} .Target {{ "}}" }}"
+  ]
+

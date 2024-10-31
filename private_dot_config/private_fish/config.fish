@@ -9,26 +9,32 @@ set -x LANG en_US.UTF-8
 #   # bind -M default \$ end-of-line accept-autosuggestion
 # end
 
-# Filesystem jumper via `j`
-status --is-interactive; and source (jump shell fish | psub)
+/opt/homebrew/bin/brew shellenv | source
+
+set -x ZK_NOTEBOOK_DIR $HOME/Developer/Notes
+set -x EDITOR (which nvim)
+
+set -eg fish_user_paths
+
+set -g fish_user_paths /usr/local/bin $fish_user_paths
+set -g fish_user_paths /usr/local/sbin $fish_user_paths
+
+set -g fish_user_paths "$HOME/go/bin:$PATH" $fish_user_paths
+set -g fish_user_paths "$HOME/.cargo/bin:$PATH" $fish_user_paths
+set -g fish_user_paths "$HOME/.emacs.d/bin" $fish_user_paths
+
+if status is-interactive
+    fzf --fish | source
+    rbenv init - --no-rehash fish | source
+    zoxide init fish --cmd cd | source
+    source /opt/homebrew/opt/asdf/libexec/asdf.fish
+end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
     source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
 end
 
-set -eg fish_user_paths
-
-set -g fish_user_paths /usr/local/bin $fish_user_paths
-set -g fish_user_paths /usr/local/sbin $fish_user_paths
-set -g fish_user_paths /opt/homebrew/bin $fish_user_paths
-set -g fish_user_paths /opt/homebrew/sbin $fish_user_paths
-set -g fish_user_paths /opt/homebrew/opt/grep/libexec/gnubin $fish_user_paths
-set -g fish_user_paths "(brew --prefix)/opt/llvm/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/go/bin:$PATH" $fish_user_paths
-set -g fish_user_paths "$HOME/.cargo/bin:$PATH" $fish_user_paths
-set -g fish_user_paths "$HOME/.emacs.d/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/Library/Python/3.9/bin" $fish_user_paths
 
 # pnpm
 set -gx PNPM_HOME /Users/zjr/Library/pnpm
@@ -39,10 +45,13 @@ end
 # Load all saved ssh keys
 /usr/bin/ssh-add --apple-load-keychain ^/dev/null
 
+abbr -a -- c cd
 abbr -a -- l ls
 abbr -a -- la ls -al
 abbr -a -- g git
 abbr -a -- gs git status
+abbr -a -- v nvim
+abbr -a -- vi nvim
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
@@ -89,9 +98,6 @@ enable_transience
 # Set VI mode key bindings
 set -g fish_key_bindings fish_vi_key_bindings
 
-# FZF integration
-fzf --fish | source
-
 ###
 # Emacs VTerm Stuff
 ###
@@ -129,4 +135,3 @@ if [ "$INSIDE_EMACS" = vterm ]
         tput clear
     end
 end
-

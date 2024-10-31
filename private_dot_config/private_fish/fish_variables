@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR SHELL:/opt/homebrew/bin/fish
 SETUVAR --export BAT_THEME:Catppuccin\x2dfrappe
 SETUVAR --export EDITOR:nvim
 SETUVAR --export VISUAL:nvim
