@@ -42,9 +42,6 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-# Load all saved ssh keys
-/usr/bin/ssh-add --apple-load-keychain ^/dev/null
-
 abbr -a -- c cd
 abbr -a -- l ls
 abbr -a -- la ls -al
