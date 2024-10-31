@@ -13,6 +13,12 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
+config.enable_scroll_bar = false
+config.use_resize_increments = true
+
+-- Window padding
+local padding = { left = "1cell", right = "1cell", top = "0.5cell", bottom = "0.5cell" }
+config.window_padding = padding
 
 -- Background blur & transparancy
 config.text_background_opacity = 1
@@ -64,6 +70,24 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		end
 	end
 	window:set_config_overrides(overrides)
+end)
+
+-- NeoVim unpadding
+wezterm.on("user-var-changed", function(window, _, name, value)
+	if name == "NVIM_ENTER" then
+		local overrides = window:get_config_overrides() or {}
+		if value == "1" then
+			overrides.window_padding = {
+				left = 0,
+				right = 0,
+				top = 0,
+				bottom = 0,
+			}
+		else
+			overrides.window_padding = padding
+		end
+		window:set_config_overrides(overrides)
+	end
 end)
 
 return config
