@@ -1,0 +1,109 @@
+[alias]
+    # https://git.wiki.kernel.org/articles/a/l/i/Aliases.html
+
+    # `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
+    # `git gc`: cleanup unnecessary files and optimize the local repository
+    # `git clean -df`: remove untracked files and directories from the working tree
+    # `git stash clear`: remove all stashed states
+
+    trim = !git remote prune origin && git gc
+    cleanup = !git clean -df && git stash clear
+
+    # Add untracked, remove deleted, and show status
+    adda = !git add -A && git status
+
+    # Fetch a repository ($1) and checkout its ref ($2) HEAD
+    browse = !bash -c 'git fetch "$1" "$2" && git checkout FETCH_HEAD' -
+
+    # Diff what is staged for the next commit
+    diffc = diff --cached
+    # Diff overview
+    diffst = diff --stat
+
+    # Custom graph log (append any tree-ish)
+    graph = log --pretty=nice --date-order --graph
+    # Custom graph log for all branches
+    grapha = log --pretty=nice --date-order --graph --all
+
+    # Custom pretty log
+    logp = log --pretty=nice --date-order
+
+    # Diffstat log
+    logst = log --stat
+    # Short format diffstat log
+    logsf = log --stat --format=oneline --abbrev-commit
+
+    # Display the number of commits per author in numerical order
+    who = shortlog -sn --
+	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+
+    sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)\"
+	#" syntax highlighter hack
+
+# [color]
+#     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
+#     ui = auto
+#     interactive = auto
+
+[credential]
+    helper = osxkeychain
+
+[pretty]
+    # tut: http://gitimmersion.com/lab_10.html
+    # ref: http://linux.die.net/man/1/git-log
+    # Result: <short-sha> <commit-message> (<pointer-names>) -- <commit-author-name>; <relative-time>
+    nice = "%C(yellow)%h%C(reset) %C(white)%s%C(cyan)%d%C(reset) -- %an; %ar"
+
+[user]
+	name = Zachary J. Rollyson
+	email = zach@adxsoftware.com
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[pull]
+	rebase = false
+
+[init]
+	defaultBranch = main
+
+[core]
+    # Use custom `.gitignore` and `.gitattributes`
+	excludesfile = /Users/zjr/.gitignore
+    attributesfile = ~/.gitattributes
+	autocrlf = input
+	eol = lf
+	ignorecase = false
+	editor = /opt/homebrew/bin/hx
+    pager = delta
+
+[include]
+	path = /Users/zjr/Developer/OSS/delta/themes.gitconfig
+	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/latte.gitconfig
+	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/frappe.gitconfig
+	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/macchiato.gitconfig
+	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/mocha.gitconfig
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive --syntax-theme=Catppuccin-frappe
+
+[delta]
+	tabs = 2
+	features = decorations
+	features = catppuccin-frappe
+	theme = Catppuccin-frappe
+	navigate = true
+	navigate-regex = ^(commit|added:|removed:|renamed:|Δ)
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
