@@ -48,6 +48,10 @@ abbr -a -- gs git status
 abbr -a -- v nvim
 abbr -a -- vi nvim
 
+abbr -a -- cm chezmoi
+abbr -a -- ccd chezmoi cd
+
+
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
 set -g fish_color_cancel -r
