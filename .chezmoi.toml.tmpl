@@ -3,7 +3,7 @@
 
 [data]
   email = {{ $email | quote }}
-  computerName = {{ coalesce $computerName .chezmoi.hostname }}
+  computerName = {{ coalesce $computerName .chezmoi.hostname | quote }}
 
 [merge]
   command = "nvim"
