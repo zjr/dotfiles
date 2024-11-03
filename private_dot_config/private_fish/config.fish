@@ -9,19 +9,23 @@ set -x LANG en_US.UTF-8
 #   # bind -M default \$ end-of-line accept-autosuggestion
 # end
 
-/opt/homebrew/bin/brew shellenv | source
-
 set -x ZK_NOTEBOOK_DIR $HOME/Developer/Notes
 set -x EDITOR (which nvim)
 
-set -eg fish_user_paths
+# pnpm
+set -gx PNPM_HOME /Users/zjr/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    fish_add_path -g $PNPM_HOME
+end
 
-set -g fish_user_paths /usr/local/bin $fish_user_paths
-set -g fish_user_paths /usr/local/sbin $fish_user_paths
+fish_add_path -g "$HOME/go/bin"
+fish_add_path -g "$HOME/.cargo/bin"
+fish_add_path -g "$HOME/.emacs.d/bin"
 
-set -g fish_user_paths "$HOME/go/bin:$PATH" $fish_user_paths
-set -g fish_user_paths "$HOME/.cargo/bin:$PATH" $fish_user_paths
-set -g fish_user_paths "$HOME/.emacs.d/bin" $fish_user_paths
+fish_add_path -g /usr/local/bin
+fish_add_path -g /usr/local/sbin
+
+/opt/homebrew/bin/brew shellenv | source
 
 if status is-interactive
     fzf --fish | source
@@ -35,12 +39,6 @@ if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
     source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
 end
 
-
-# pnpm
-set -gx PNPM_HOME /Users/zjr/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
 
 abbr -a -- c cd
 abbr -a -- l ls
