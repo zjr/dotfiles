@@ -12,6 +12,7 @@ return {
     },
     heading = {
       sign = true,
+      position = "inline",
       icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
     },
   },
