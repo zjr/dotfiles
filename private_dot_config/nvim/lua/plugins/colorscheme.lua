@@ -1,7 +1,14 @@
 return {
   {
     "folke/tokyonight.nvim",
-    opts = { style = "storm", transparent = true },
+    opts = {
+      style = "storm",
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
   {
     "catppuccin/nvim",
@@ -11,7 +18,7 @@ return {
         light = "latte",
         dark = "frappe",
       },
-      transparent_background = true,
+      transparent_background = false,
     },
   },
   {
