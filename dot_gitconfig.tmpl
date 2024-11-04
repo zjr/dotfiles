@@ -55,8 +55,14 @@
     nice = "%C(yellow)%h%C(reset) %C(white)%s%C(cyan)%d%C(reset) -- %an; %ar"
 
 [user]
-	name = Zachary J. Rollyson
-	email = zach@adxsoftware.com
+	name = {{ .data.name }}
+	email = {{ .data.email }}
+{{- if data.gitkey -}}
+	signingkey = {{ .data.gitkey }}
+{{- end -}}
+
+[commit]
+	gpgsign = true
 
 [push]
 	default = simple

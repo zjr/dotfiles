@@ -1,8 +1,12 @@
+{{ $name := promptString "email" "Zachary J. Rollyson" -}}
 {{ $email := promptString "email" "me@zjr.io" -}}
-{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
+{{ $gitkey := promptString "git signing key" -}}
+{{ $computerName := output "scutil" "--get" "ComputerName" | trim -}}
 
 [data]
+  name = {{ $name | quote }}
   email = {{ $email | quote }}
+  gitkey = {{ $gitkey | quote }}
   computerName = {{ coalesce $computerName .chezmoi.hostname | quote }}
 
 [merge]
