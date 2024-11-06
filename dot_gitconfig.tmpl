@@ -61,8 +61,10 @@
 	signingkey = {{ .gitkey }}
 {{- end -}}
 
+{{- if eq .computerName "FCOH2J-WJR2F2VD" -}}
 [commit]
 	gpgsign = true
+{{- end -}}
 
 [push]
 	default = simple
