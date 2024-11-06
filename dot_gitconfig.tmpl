@@ -57,14 +57,14 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
-{{- if .gitkey -}}
+{{- if .gitkey }}
 	signingkey = {{ .gitkey }}
-{{- end -}}
+{{- end }}
 
-{{- if eq .computerName "FCOH2J-WJR2F2VD" -}}
+{{ if eq .computerName "FCOH2J-WJR2F2VD" -}}
 [commit]
 	gpgsign = true
-{{- end -}}
+{{- end }}
 
 [push]
 	default = simple
