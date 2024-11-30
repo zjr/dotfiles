@@ -1,0 +1,6 @@
+# Use sMaRtCasE
+--smart-case
+
+# Show hidden and ignored files by default
+--hidden
+--no-ignore

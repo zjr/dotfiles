@@ -12,6 +12,8 @@ set -x LANG en_US.UTF-8
 set -x ZK_NOTEBOOK_DIR $HOME/Developer/Notes
 set -x EDITOR (which nvim)
 
+set -x RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
+
 # pnpm
 set -gx PNPM_HOME /Users/zjr/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
