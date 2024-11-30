@@ -11,10 +11,10 @@ config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 config.tab_max_width = 80
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.window_decorations = "RESIZE"
 config.enable_scroll_bar = false
-config.use_resize_increments = true
+config.use_resize_increments = false
 
 -- Window padding
 local padding = { left = "1cell", right = "1cell", top = "0.5cell", bottom = "0.5cell" }
