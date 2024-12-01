@@ -17,3 +17,7 @@ kubernetes
 gitlab
 buildpacks
 Korifi
+nvim
+LSP
+gopls
+Neovim
