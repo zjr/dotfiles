@@ -37,5 +37,11 @@ return {
       bullets = {},
       external_link_icon = {},
     },
+    templates = {
+      folder = "_tmpl",
+      date_format = "%Y-%m-%d-%a",
+      time_format = "%H:%M",
+      substitutions = {},
+    },
   },
 }
