@@ -16,6 +16,10 @@ config.window_decorations = "RESIZE"
 config.enable_scroll_bar = false
 config.use_resize_increments = false
 
+-- Window initial size
+config.initial_rows = 58
+config.initial_cols = 210
+
 -- Window padding
 local padding = { left = "1cell", right = "1cell", top = "0.5cell", bottom = "0.5cell" }
 config.window_padding = padding
