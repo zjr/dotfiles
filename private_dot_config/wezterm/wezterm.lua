@@ -17,8 +17,14 @@ config.enable_scroll_bar = false
 config.use_resize_increments = false
 
 -- Window initial size
-config.initial_rows = 58
-config.initial_cols = 210
+-- config.initial_cols = 210
+-- config.initial_rows = 58
+
+config.initial_cols = 280
+config.initial_rows = 78
+
+-- Kitty protocol so you can set maps with Cmd key
+config.enable_kitty_keyboard = true
 
 -- Window padding
 local padding = { left = "1cell", right = "1cell", top = "0.5cell", bottom = "0.5cell" }
