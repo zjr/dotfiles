@@ -50,7 +50,7 @@ abbr -a -- gs git status
 abbr -a -- v nvim
 abbr -a -- vi nvim
 
-abbr -a -- cm chezmoi
+abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
 
 
