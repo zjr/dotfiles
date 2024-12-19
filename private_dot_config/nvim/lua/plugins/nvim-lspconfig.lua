@@ -5,5 +5,14 @@ return {
       enabled = true,
       exclude = { "go" }, -- filetypes for which you don't want to enable inlay hints
     },
+    servers = {
+      gopls = {
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=integration" },
+          },
+        },
+      },
+    },
   },
 }
