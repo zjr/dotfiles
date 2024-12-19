@@ -14,6 +14,8 @@ set -x EDITOR (which nvim)
 
 set -x RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
+set -x MANPAGER 'sh -c "col -bx | bat -plman"'
+
 # pnpm
 set -gx PNPM_HOME /Users/zjr/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
