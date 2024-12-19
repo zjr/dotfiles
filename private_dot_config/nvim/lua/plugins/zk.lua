@@ -11,8 +11,13 @@ return {
       { "<leader>z", desc = "notes" },
       -- Change to the notebook directory
       { "<leader>zc", "<Cmd>ZkCd<CR>", desc = "cd to notebook" },
+
+      { "<leader>zn", desc = "new notes" },
       -- Create a new note after asking for its title
-      { "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", desc = "new note" },
+      { "<leader>znn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", desc = "new note" },
+      -- Create a daily note
+      { "<leader>znd", "<Cmd>ZkNew { dir = 'journal/daily' }<CR>", desc = "new daily note" },
+
       -- Open notes
       { "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", desc = "open note" },
       -- Open notes associated with the selected tags

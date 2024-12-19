@@ -57,6 +57,12 @@ template = "daily.md"
 hashtags = true
 # Enable support for :colon:separated:tags:
 colon-tags = true
+# Enable support for Bear's #multi-word tags#
+# Hashtags must be enabled for multi-word tags to work.
+multiword-tags = true
+
+# Link settings
+link-format = "wiki"
 
 # EXTERNAL TOOLS
 [tool]
@@ -79,17 +85,38 @@ recents = "--sort created- --created-after 'last two weeks'"
 
 # COMMAND ALIASES
 [alias]
+#
+# Edit this configuration file.
+conf = '$EDITOR "$ZK_NOTEBOOK_DIR/.zk/config.toml"'
+config = 'zk conf'
+
+# Shortcut to a command.
+ls = "zk list $argv"
 
 # Edit the last modified note.
-edlast = "zk edit --limit 1 --sort modified- $@"
+last = "zk edit --limit 1 --sort modified- $argv"
+edlast = "zk last"
 
 # Edit the notes selected interactively among the notes created the last two weeks.
 recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
 
+# Open the daily note
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/daily"'
+
 # Show a random note.
 lucky = "zk list --quiet --format full --sort random --limit 1"
 
-daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/daily"'
+# Examples…
+
+# Print paths separated with colons for the notes found with the given
+# arguments. This can be useful to expand a complex search query into a flag
+# taking only paths. For example:
+#   zk list --link-to "`zk path -m potatoe`"
+#path = "zk list --quiet --format {{path}} --delimiter , $argv"
+
+# Returns the Git history for the notes found with the given arguments.
+# Note the use of a pipe and the location of $@.
+# hist = "zk list --format path --delimiter0 --quiet $@ | xargs -t -0 git log --patch --"
 
 # LSP (EDITOR INTEGRATION)
 [lsp]
