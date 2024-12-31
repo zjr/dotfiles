@@ -51,6 +51,7 @@ abbr -a -- g git
 abbr -a -- gs git status
 abbr -a -- v nvim
 abbr -a -- vi nvim
+abbr -a -- tt tabtitle
 
 abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
