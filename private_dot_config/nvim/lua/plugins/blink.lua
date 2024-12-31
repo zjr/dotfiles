@@ -1,6 +1,5 @@
 return {
   "saghen/blink.cmp",
-  keymap = {
-    preset = "super-tab",
-  },
+  opts = { keymap = { preset = "super-tab" } },
+  completion = { list = { selection = "auto_insert" } },
 }
