@@ -1,6 +1,21 @@
+set usage "Incorrect Usage: the required arguments `SERVICE_INSTANCE` and `SERVICE_KEY` were not provided
+
+NAME:
+   setawscreds - Set credentials for AWS service from cloud.gov service key
+
+USAGE:
+   setawscreds SERVICE_INSTANCE SERVICE_KEY [-c, --create]
+
+EXAMPLES:
+   setawscreds mydb mykey -c
+
+OPTIONS:
+   --create, -c      Create the service key, if not provided the key is presumed to exist
+"
+
 function setawscreds -a service key -d "Set AWS credentials with a cloud.gov service-key"
     if test -z $service; or test -z $key
-        echo "setawscreds [service] [key]"
+        echo $usage
         return
     end
 
@@ -17,8 +32,8 @@ function setawscreds -a service key -d "Set AWS credentials with a cloud.gov ser
 
     set -gx AWS_ACCESS_KEY_ID (echo $S3_CREDENTIALS | jq -r '.credentials.access_key_id')
     set -gx AWS_SECRET_ACCESS_KEY (echo $S3_CREDENTIALS | jq -r '.credentials.secret_access_key')
-    set -gx BUCKET_NAME (echo $S3_CREDENTIALS | jq -r '.credentials.bucket')
     set -gx AWS_DEFAULT_REGION (echo $S3_CREDENTIALS | jq -r '.credentials.region')
+    set -gx BUCKET_NAME (echo $S3_CREDENTIALS | jq -r '.credentials.bucket')
 
     echo "Done."
 end
