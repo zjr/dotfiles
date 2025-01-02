@@ -10,12 +10,19 @@ EXAMPLES:
    setawscreds mydb mykey -c
 
 OPTIONS:
-   --create, -c      Create the service key, if not provided the key is presumed to exist
+   --create, -c      Creates the service key, remember to delete this manually later
 "
 
-function setawscreds -a service key -d "Set AWS credentials with a cloud.gov service-key"
+function cg_to_aws_env -d "Set AWS credentials with a cloud.gov service-key" -a service key
+    ck_cflogin
+
     if test -z $service; or test -z $key
         echo $usage
+        if test -z $service
+            cf services
+        else
+            cf service-keys $service
+        end
         return
     end
 
@@ -34,6 +41,4 @@ function setawscreds -a service key -d "Set AWS credentials with a cloud.gov ser
     set -gx AWS_SECRET_ACCESS_KEY (echo $S3_CREDENTIALS | jq -r '.credentials.secret_access_key')
     set -gx AWS_DEFAULT_REGION (echo $S3_CREDENTIALS | jq -r '.credentials.region')
     set -gx BUCKET_NAME (echo $S3_CREDENTIALS | jq -r '.credentials.bucket')
-
-    echo "Done."
 end
