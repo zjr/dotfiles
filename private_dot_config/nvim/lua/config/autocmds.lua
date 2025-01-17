@@ -18,3 +18,11 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MA==\007")]])
   end,
 })
+
+-- Gitlab-CI YAML LS
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.gitlab-ci*.{yml,yaml}",
+  callback = function()
+    vim.bo.filetype = "yaml.gitlab"
+  end,
+})

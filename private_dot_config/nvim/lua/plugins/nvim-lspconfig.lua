@@ -13,6 +13,15 @@ return {
           },
         },
       },
+      yamlls = {
+        settings = {
+          yaml = {
+            customTags = {
+              "!reference sequence", -- necessary for gitlab-ci.yaml files
+            },
+          },
+        },
+      },
     },
   },
 }
