@@ -52,10 +52,13 @@ config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 -- Key bindings
 config.keys = {
 	{ key = "Enter", mods = "CMD", action = wezterm.action.ToggleFullScreen },
-	{ key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+	-- { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
+	-- { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
+	-- { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
+	-- { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+	{ key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
+	{ key = "h", mods = "ALT", action = wezterm.action.DisableDefaultAssignment },
 }
 
 -- NeoVim ZenMode Integration
