@@ -13,8 +13,15 @@ OPTIONS:
    --create, -c      Creates the service key, remember to delete this manually later
 "
 
-function cg_to_aws_env -d "Set AWS credentials with a cloud.gov service-key" -a service key
-    ck_cflogin
+function cg_to_aws_env -a service key -d "Set AWS credentials with a cloud.gov service-key"
+    argparse c/create -- $argv
+    or return
+
+    ck_cg_auth
+
+    if set -ql _flag_c
+        cf create-service-key $service $key
+    end
 
     if test -z $service; or test -z $key
         echo $usage
@@ -28,17 +35,12 @@ function cg_to_aws_env -d "Set AWS credentials with a cloud.gov service-key" -a 
 
     echo "Setting AWS credentials for $service with $key…"
 
-    argparse c/create -- $argv
-    or return
-
-    if set -ql _flag_c
-        cf create-service-key $service $key
-    end
-
     set -l S3_CREDENTIALS (cf service-key $service $key | tail -n +2)
 
     set -gx AWS_ACCESS_KEY_ID (echo $S3_CREDENTIALS | jq -r '.credentials.access_key_id')
     set -gx AWS_SECRET_ACCESS_KEY (echo $S3_CREDENTIALS | jq -r '.credentials.secret_access_key')
     set -gx AWS_DEFAULT_REGION (echo $S3_CREDENTIALS | jq -r '.credentials.region')
     set -gx BUCKET_NAME (echo $S3_CREDENTIALS | jq -r '.credentials.bucket')
+
+    echo "Done."
 end
