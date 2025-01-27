@@ -49,3 +49,6 @@ configs
 webserver
 env
 filesystem
+namespacing
+namespaced
+Zach
