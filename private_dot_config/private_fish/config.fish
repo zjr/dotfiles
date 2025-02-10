@@ -58,14 +58,18 @@ if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
     source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
 end
 
-
 abbr -a -- c cd
 abbr -a -- l ls
 abbr -a -- la ls -al
 abbr -a -- g git
 abbr -a -- gs git status
 abbr -a -- v nvim
+abbr -a -- n nvim
+abbr -a -- nv nvim
+abbr -a -- nn nvim
 abbr -a -- vi nvim
+abbr -a -- pp pnpm
+abbr -a -- pe pnpm exec
 abbr -a -- tt tabtitle
 
 abbr -a -- che chezmoi
