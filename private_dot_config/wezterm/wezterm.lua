@@ -47,65 +47,65 @@ config.macos_window_background_blur = 30
 -- config.font = wezterm.font 'Iosevka Term SS06'
 -- config.font = wezterm.font({ family = 'Iosevka Term SS06', stretch = 'UltraCondensed'})
 -- config.font = wezterm.font({ family = 'Iosevka SS06', stretch = 'UltraCondensed'})
-config.font_size = 12
-config.line_height = 1.1
-config.warn_about_missing_glyphs = true
-
-local mainFont = "Monaspace Argon"
-
--- Monaspace:  https://monaspace.githubnext.com/
--- Based upon, contributed to:  https://gist.github.com/ErebusBat/9744f25f3735c1e0491f6ef7f3a9ddc3
-config.font = wezterm.font({ -- Normal text
-	family = mainFont,
-	stretch = "SemiCondensed",
-	weight = "Regular",
-	harfbuzz_features = {
-		"calt",
-		"liga",
-		"dlig",
-		"ss01",
-		"ss02",
-		"ss03",
-		"ss04",
-		"ss05",
-		"ss06",
-		"ss07",
-		"ss08",
-		"ss09",
-	},
-})
-
-config.font_rules = {
-	{ -- Italic
-		intensity = "Normal",
-		italic = true,
-		font = wezterm.font({
-			family = mainFont,
-			style = "Italic",
-		}),
-	},
-
-	{ -- Bold
-		intensity = "Bold",
-		italic = false,
-		font = wezterm.font({
-			-- family = "Monaspace Krypton",
-			family = mainFont,
-			weight = "DemiBold",
-		}),
-	},
-
-	{ -- Bold Italic
-		intensity = "Bold",
-		italic = true,
-		-- family = "Monaspace Xenon",
-		font = wezterm.font({
-			family = mainFont,
-			style = "Italic",
-			weight = "DemiBold",
-		}),
-	},
-}
+-- config.font_size = 12
+-- config.line_height = 1.1
+-- config.warn_about_missing_glyphs = true
+--
+-- local mainFont = "Monaspace Argon"
+--
+-- -- Monaspace:  https://monaspace.githubnext.com/
+-- -- Based upon, contributed to:  https://gist.github.com/ErebusBat/9744f25f3735c1e0491f6ef7f3a9ddc3
+-- config.font = wezterm.font({ -- Normal text
+-- 	family = mainFont,
+-- 	stretch = "SemiCondensed",
+-- 	weight = "Regular",
+-- 	harfbuzz_features = {
+-- 		"calt",
+-- 		"liga",
+-- 		"dlig",
+-- 		"ss01",
+-- 		"ss02",
+-- 		"ss03",
+-- 		"ss04",
+-- 		"ss05",
+-- 		"ss06",
+-- 		"ss07",
+-- 		"ss08",
+-- 		"ss09",
+-- 	},
+-- })
+--
+-- config.font_rules = {
+-- 	{ -- Italic
+-- 		intensity = "Normal",
+-- 		italic = true,
+-- 		font = wezterm.font({
+-- 			family = mainFont,
+-- 			style = "Italic",
+-- 		}),
+-- 	},
+--
+-- 	{ -- Bold
+-- 		intensity = "Bold",
+-- 		italic = false,
+-- 		font = wezterm.font({
+-- 			-- family = "Monaspace Krypton",
+-- 			family = mainFont,
+-- 			weight = "DemiBold",
+-- 		}),
+-- 	},
+--
+-- 	{ -- Bold Italic
+-- 		intensity = "Bold",
+-- 		italic = true,
+-- 		-- family = "Monaspace Xenon",
+-- 		font = wezterm.font({
+-- 			family = mainFont,
+-- 			style = "Italic",
+-- 			weight = "DemiBold",
+-- 		}),
+-- 	},
+-- }
 
 -- Color scheme (switches for light/dark mode)
 local function scheme_for_appearance(appearance)
