@@ -35,8 +35,76 @@ config.text_background_opacity = 1
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 30
 
--- Font config
+--
+-- Fonts
+--
+-- https://wezfurlong.org/wezterm/config/lua/wezterm/font.html
+-- https://wezfurlong.org/wezterm/config/lua/config/font_rules.html
+-- wezterm ls-fonts
+-- wezterm ls-fonts --list-system
+--
+-- config.font = wezterm.font 'JetBrains Mono'
+-- config.font = wezterm.font 'Iosevka Term SS06'
+-- config.font = wezterm.font({ family = 'Iosevka Term SS06', stretch = 'UltraCondensed'})
+-- config.font = wezterm.font({ family = 'Iosevka SS06', stretch = 'UltraCondensed'})
 config.font_size = 13
+config.warn_about_missing_glyphs = true
+
+local mainFont = "Monaspace Argon"
+
+-- Monaspace:  https://monaspace.githubnext.com/
+-- Based upon, contributed to:  https://gist.github.com/ErebusBat/9744f25f3735c1e0491f6ef7f3a9ddc3
+config.font = wezterm.font({ -- Normal text
+	family = mainFont,
+	stretch = "SemiCondensed",
+	weight = "Book",
+	harfbuzz_features = {
+		"calt",
+		"liga",
+		"dlig",
+		"ss01",
+		"ss02",
+		"ss03",
+		"ss04",
+		"ss05",
+		"ss06",
+		"ss07",
+		"ss08",
+		"ss09",
+	},
+})
+
+config.font_rules = {
+	{ -- Italic
+		intensity = "Normal",
+		italic = true,
+		font = wezterm.font({
+			family = mainFont,
+			style = "Italic",
+		}),
+	},
+
+	{ -- Bold
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font({
+			-- family = "Monaspace Krypton",
+			family = mainFont,
+			weight = "Medium",
+		}),
+	},
+
+	{ -- Bold Italic
+		intensity = "Bold",
+		italic = true,
+		-- family = "Monaspace Xenon",
+		font = wezterm.font({
+			family = mainFont,
+			style = "Italic",
+			weight = "Medium",
+		}),
+	},
+}
 
 -- Color scheme (switches for light/dark mode)
 local function scheme_for_appearance(appearance)
