@@ -47,7 +47,8 @@ config.macos_window_background_blur = 30
 -- config.font = wezterm.font 'Iosevka Term SS06'
 -- config.font = wezterm.font({ family = 'Iosevka Term SS06', stretch = 'UltraCondensed'})
 -- config.font = wezterm.font({ family = 'Iosevka SS06', stretch = 'UltraCondensed'})
-config.font_size = 13
+config.font_size = 12
+config.line_height = 1.1
 config.warn_about_missing_glyphs = true
 
 local mainFont = "Monaspace Argon"
@@ -57,7 +58,7 @@ local mainFont = "Monaspace Argon"
 config.font = wezterm.font({ -- Normal text
 	family = mainFont,
 	stretch = "SemiCondensed",
-	weight = "Book",
+	weight = "Regular",
 	harfbuzz_features = {
 		"calt",
 		"liga",
@@ -90,7 +91,7 @@ config.font_rules = {
 		font = wezterm.font({
 			-- family = "Monaspace Krypton",
 			family = mainFont,
-			weight = "Medium",
+			weight = "DemiBold",
 		}),
 	},
 
@@ -101,7 +102,7 @@ config.font_rules = {
 		font = wezterm.font({
 			family = mainFont,
 			style = "Italic",
-			weight = "Medium",
+			weight = "DemiBold",
 		}),
 	},
 }
