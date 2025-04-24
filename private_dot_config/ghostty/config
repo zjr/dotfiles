@@ -1,0 +1,11 @@
+shell-integration = fish
+copy-on-select = true
+theme = catppuccin-frappe
+cursor-style = underline
+
+background-opacity = 0.94
+background-blur = true
+
+macos-non-native-fullscreen = true
+macos-titlebar-style = "transparent"
+macos-option-as-alt = left
