@@ -28,6 +28,7 @@ fish_add_path -g "$HOME/.emacs.d/bin"
 
 fish_add_path -g /usr/local/bin
 fish_add_path -g /usr/local/sbin
+fish_add_path -g "$HOME/.local/bin"
 
 /opt/homebrew/bin/brew shellenv | source
 
@@ -38,6 +39,8 @@ end
 fzf --fish | source
 rbenv init - --no-rehash fish | source
 zoxide init fish --cmd cd | source
+source (pack completion --shell fish)
+eval (bt init fish)
 
 # ASDF configuration code
 if test -z $ASDF_DATA_DIR
@@ -74,7 +77,6 @@ abbr -a -- tt tabtitle
 
 abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
-
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
