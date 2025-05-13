@@ -41,7 +41,7 @@ rbenv init - --no-rehash fish | source
 zoxide init fish --cmd cd | source
 
 source (pack completion --shell fish)
-eval (bt init fish)
+eval (bt init fish) # https://github.com/dmikusa/binding-tool
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
