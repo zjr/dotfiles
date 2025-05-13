@@ -39,6 +39,7 @@ end
 fzf --fish | source
 rbenv init - --no-rehash fish | source
 zoxide init fish --cmd cd | source
+
 source (pack completion --shell fish)
 eval (bt init fish)
 
