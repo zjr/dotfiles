@@ -61,6 +61,7 @@ abbr -a -- vi nvim
 abbr -a -- pp pnpm
 abbr -a -- pe pnpm exec
 abbr -a -- tt tabtitle
+abbr -a -- tf terraform
 
 abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
