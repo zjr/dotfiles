@@ -9,3 +9,13 @@ background-blur = true
 macos-non-native-fullscreen = true
 macos-titlebar-style = "transparent"
 macos-option-as-alt = left
+
+keybind = alt+shift+ctrl+h=goto_split:left
+keybind = alt+shift+ctrl+j=goto_split:down
+keybind = alt+shift+ctrl+k=goto_split:up
+keybind = alt+shift+ctrl+l=goto_split:right
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-color = extend
+window-padding-balance = true
