@@ -31,6 +31,7 @@ fish_add_path -g /usr/local/sbin
 fish_add_path -g "$HOME/.local/bin"
 
 /opt/homebrew/bin/brew shellenv | source
+shadowenv init fish | source
 
 if not status is-interactive
     return
