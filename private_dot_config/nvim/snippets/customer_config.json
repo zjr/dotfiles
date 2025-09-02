@@ -1,0 +1,7 @@
+{
+  "Docs: Key": {
+    "prefix": "kkl",
+    "body": ["`${1:key}` _${2:type default}_ ${4:Description}"],
+    "description": ""
+  }
+}
