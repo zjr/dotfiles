@@ -1,5 +1,5 @@
 function zctl
-    switch (argv)
+    switch $argv
         case up
             sudo launchctl load /Library/LaunchDaemons/com.zscaler.service.plist /Library/LaunchDaemons/com.zscaler.tunnel.plist
         case down
