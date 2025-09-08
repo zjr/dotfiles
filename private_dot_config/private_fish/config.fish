@@ -1,4 +1,5 @@
 set -x LANG en_US.UTF-8
+set -x XDG_CONFIG_HOME $HOME/.config
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
