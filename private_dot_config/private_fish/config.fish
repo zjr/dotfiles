@@ -49,24 +49,6 @@ if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
     source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
 end
 
-abbr -a -- c cd
-abbr -a -- l ls
-abbr -a -- la ls -al
-abbr -a -- g git
-abbr -a -- gs git status
-abbr -a -- v nvim
-abbr -a -- n nvim
-abbr -a -- nv nvim
-abbr -a -- nn nvim
-abbr -a -- vi nvim
-abbr -a -- pp pnpm
-abbr -a -- pe pnpm exec
-abbr -a -- tt tabtitle
-abbr -a -- tf terraform
-
-abbr -a -- che chezmoi
-abbr -a -- ccd chezmoi cd
-
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
 set -g fish_color_cancel -r
