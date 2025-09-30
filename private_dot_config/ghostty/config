@@ -1,6 +1,6 @@
 shell-integration = fish
-copy-on-select = true
-theme = catppuccin-frappe
+copy-on-select = clipboard
+theme = Catppuccin Frappe
 cursor-style = underline
 
 background-opacity = 0.94
