@@ -16,6 +16,7 @@ abbr -a -- gs git status
 abbr -a -- gmp "git checkout main && git pull"
 abbr -a -- gpb "prunebranch && git trim"
 abbr --command git co checkout
+abbr -a -- lg lazygit
 
 abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
