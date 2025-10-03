@@ -5,10 +5,11 @@
 local map = vim.keymap.set
 local unmap = vim.keymap.del
 
+-- TODO: this is broken right now and is annoying but I don't use it much…
 -- Repeat movement with ; and ,
-local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+-- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+-- map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+-- map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
 -- Floating terminal
 map("n", "<c-\\>", function()
