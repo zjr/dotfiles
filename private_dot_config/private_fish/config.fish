@@ -34,6 +34,9 @@ fish_add_path -g "$HOME/.local/bin"
 /opt/homebrew/bin/brew shellenv | source
 shadowenv init fish | source
 
+# Source rust
+source "$HOME/.cargo/env.fish"
+
 if not status is-interactive
     return
 end
