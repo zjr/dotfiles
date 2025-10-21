@@ -9,7 +9,11 @@ abbr -a -- vi nvim
 abbr -a -- pp pnpm
 abbr -a -- pe pnpm exec
 abbr -a -- tt tabtitle
+
 abbr -a -- tf terraform
+abbr -a -- tfi terraform init
+abbr -a -- tfp terraform plan
+abbr -a -- tfa terraform apply
 
 abbr -a -- g git
 abbr -a -- gs git status
