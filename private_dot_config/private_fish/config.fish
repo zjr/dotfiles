@@ -84,7 +84,7 @@ bind -M insert . expand-dot-to-parent-directory-path
 function starship_transient_prompt_func
     starship module character
 end
-starship init fish | source
+starship init fish --print-full-init | source
 enable_transience
 
 # Return to 'default' VI mode after executing command 
