@@ -115,3 +115,8 @@
 
 [diff]
 	colorMoved = default
+
+[filter "cleanFishVars"]
+	clean = awk '!/SETUVAR _.*/{print}'
+[diff "fish_variables"]
+	textconv = awk '!/SETUVAR _.*/{print}'

@@ -18,3 +18,7 @@
     "{{ "{{" }} .Target {{ "}}" }}"
   ]
 
+[[textconv]]
+  command = "awk"
+  pattern = "**/.config/fish/fish_variables"
+  args = ["!/SETUVAR _.*/{print}"]
