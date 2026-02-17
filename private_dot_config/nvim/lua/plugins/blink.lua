@@ -9,8 +9,10 @@ return {
       ["<Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
+            -- insert currently selected item
             return cmp.accept()
           else
+            -- insert selected item, or select the first if none
             return cmp.select_and_accept()
           end
         end,
@@ -29,6 +31,7 @@ return {
 
       ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
+    -- shows function signatures, e.g. when filling in arguments
     signature = {
       enabled = true,
       window = { show_documentation = true },
@@ -36,6 +39,8 @@ return {
     completion = {
       list = {
         selection = {
+          -- turns off completion pre-selection when completing parts
+          -- of a snippet, e.g. tabbing through function arguments
           preselect = function()
             return not require("blink.cmp").snippet_active({ direction = 1 })
           end,
