@@ -24,3 +24,6 @@ abbr -a -- lg lazygit
 
 abbr -a -- che chezmoi
 abbr -a -- ccd chezmoi cd
+
+abbr -a -- pgd pg_dump
+abbr -a -- pgr pg_restore
