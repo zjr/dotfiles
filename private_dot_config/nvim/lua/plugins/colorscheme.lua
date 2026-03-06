@@ -11,17 +11,30 @@ return {
     },
   },
   {
-    "catppuccin",
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     opts = {
-      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      flavour = "auto", -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = "latte",
         dark = "frappe",
       },
-      transparent_background = true, -- disables setting the background color.
-      float = {
-        transparent = true, -- enable transparent floating windows
-        solid = false, -- use solid styling for floating windows, see |winborder|
+      dim_inactive = {
+        enabled = true, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+      },
+      auto_integrations = true,
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        -- component_separators = { left = "", right = "" },
+        component_separators = "",
+        section_separators = { left = "", right = "" },
       },
     },
   },
