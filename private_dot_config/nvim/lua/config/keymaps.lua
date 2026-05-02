@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
-local unmap = vim.keymap.del
 
 -- Repeat movement with ; and ,
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
@@ -26,7 +25,3 @@ map("n", "<S-C-Tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- Indent list during insert mode with c-i
 map("i", "<C-i>", "<cmd>BulletDemote<cr>", { desc = "Increase Indent" })
-
--- Turn off alt-move in insert because I keep triggering it with escape
-unmap({ "n", "i" }, "<A-j>")
-unmap({ "n", "i" }, "<A-k>")
