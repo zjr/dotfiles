@@ -4,11 +4,6 @@
 
 local map = vim.keymap.set
 
--- Repeat movement with ; and ,
-local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
 -- Floating terminal
 map("n", "<c-\\>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
