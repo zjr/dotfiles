@@ -20,6 +20,7 @@ abbr -a -- gs git status
 abbr -a -- gpm "git checkout main && git pull"
 abbr -a -- gpb "prunebranch && git trim"
 abbr --command git co checkout
+
 abbr -a -- lg lazygit
 
 abbr -a -- che chezmoi
@@ -27,3 +28,9 @@ abbr -a -- ccd chezmoi cd
 
 abbr -a -- pgd pg_dump
 abbr -a -- pgr pg_restore
+
+abbr -a -- do doctl
+abbr -a -- doa doctl auth
+abbr -a -- doi doctl invoice
+abbr --command doctl a auth
+abbr --command doctl i invoice
