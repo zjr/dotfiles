@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export EDITOR:/opt/homebrew/bin/nvim
 SETUVAR SHELL:/opt/homebrew/bin/fish
 SETUVAR --export VISUAL:nvim
-SETUVAR fish_user_paths:/opt/homebrew/sbin\x1e/Users/zjr/\x2ecargo/bin\x3a/usr/local/bin\x3a/opt/homebrew/bin\x3a/Users/zjr/\x2elocal/share/nvm/v20\x2e10\x2e0/bin\x3a/System/Cryptexes/App/usr/bin\x3a/usr/bin\x3a/bin\x3a/usr/sbin\x3a/sbin\x3a/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/local/bin\x3a/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/bin\x3a/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/appleinternal/bin\x3a/usr/local/share/dotnet\x3a\x7e/\x2edotnet/tools\x3a/usr/local/go/bin\x1e/usr/local/bin\x1e/opt/homebrew/bin\x1e/Users/zjr/\x2ecargo/bin
+SETUVAR --export EDITOR:/opt/homebrew/bin/nvim

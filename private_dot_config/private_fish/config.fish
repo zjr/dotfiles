@@ -1,57 +1,67 @@
-set -x LANG en_US.UTF-8
-set -x XDG_CONFIG_HOME $HOME/.config
+set -gx LANG en_US.UTF-8
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx EDITOR (which nvim)
+set -gx MANPAGER 'sh -c "col -bx | bat -plman"'
+
+# Set VI mode key bindings
+set -g fish_key_bindings fish_vi_key_bindings
+
+# Configure ripgrep (`rg`)
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
+
+# Configure ZK notebook
+set -gx ZK_NOTEBOOK_DIR $HOME/Developer/Notes
+
+fish_add_path "$HOME/.local/bin"
+fish_add_path /usr/local/bin
+fish_add_path /usr/local/sbin
+
+# Source Homebrew early so it can be overrode by version managers
+/opt/homebrew/bin/brew shellenv | source
+
+# Annoyingly complicated asdf sourcing
+set -l asdf_dir $ASDF_DATA_DIR
+[ -z $asdf_dir ] && set asdf_dir "$HOME/.asdf"
+fish_add_path -m "$asdf_dir/shims"
+
+# Go & Rust 
+fish_add_path "$HOME/go/bin"
+fish_add_path "$HOME/.cargo/bin"
+
+# Ruby
+rbenv init - --no-rehash fish | source
+
+# Shadowenv, a lisp-ish automatic env switcher
+shadowenv init fish | source
+
+# Node / pnpm
+set -gx PNPM_HOME /Users/zjr/Library/pnpm
+fish_add_path $PNPM_HOME
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]; and . /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
-
-# function fish_user_key_bindings
-#   bind --preset \x20 forward-char
-#   # bind -M default \$ end-of-line accept-autosuggestion
-# end
-
-set -x ZK_NOTEBOOK_DIR $HOME/Developer/Notes
-set -x EDITOR (which nvim)
-
-set -x RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
-
-set -x MANPAGER 'sh -c "col -bx | bat -plman"'
-
-# pnpm
-set -gx PNPM_HOME /Users/zjr/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    fish_add_path -g $PNPM_HOME
+if [ -f /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
+    source /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
 end
 
-fish_add_path -g "$HOME/go/bin"
-fish_add_path -g "$HOME/.cargo/bin"
-fish_add_path -g "$HOME/.emacs.d/bin"
+# 1Password plugins
+source /Users/zjr/.config/op/plugins.sh
 
-fish_add_path -g /usr/local/bin
-fish_add_path -g /usr/local/sbin
-fish_add_path -g "$HOME/.local/bin"
-
-/opt/homebrew/bin/brew shellenv | source
-shadowenv init fish | source
-
-# Source rust
-source "$HOME/.cargo/env.fish"
+# Google Cloud SDK
+if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
+    source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
+end
 
 if not status is-interactive
     return
 end
 
 fzf --fish | source
-rbenv init - --no-rehash fish | source
 zoxide init fish --cmd cd | source
 
+# Packer & BT for buildpack things
 source (pack completion --shell fish)
 eval (bt init fish) # https://github.com/dmikusa/binding-tool
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
-    source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
-end
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
@@ -89,14 +99,13 @@ enable_transience
 
 # Return to 'default' VI mode after executing command 
 # See https://github.com/fish-shell/fish-shell/issues/6046
-# Note: `transient_execute` stops the shell from reprinting the prompt
-#        use `execute` if you don't want that
+#
+# Note: transient_execute stops the shell from reprinting the prompt;
+#       use `execute` if you don't want that
+#
 # for mode in default insert visual
 #   bind -M $mode \r -m default transient_execute
 # end
-
-# Set VI mode key bindings
-set -g fish_key_bindings fish_vi_key_bindings
 
 ###
 # Emacs VTerm Stuff
@@ -135,18 +144,3 @@ if [ "$INSIDE_EMACS" = vterm ]
         tput clear
     end
 end
-
-# ASDF configuration code
-if test -z $ASDF_DATA_DIR
-    set _asdf_shims "$HOME/.asdf/shims"
-else
-    set _asdf_shims "$ASDF_DATA_DIR/shims"
-end
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
-source /Users/zjr/.config/op/plugins.sh
