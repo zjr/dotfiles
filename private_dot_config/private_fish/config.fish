@@ -3,9 +3,6 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR (which nvim)
 set -gx MANPAGER 'sh -c "col -bx | bat -plman"'
 
-# Set VI mode key bindings
-set -g fish_key_bindings fish_vi_key_bindings
-
 # Configure ripgrep (`rg`)
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
@@ -55,6 +52,15 @@ end
 if not status is-interactive
     return
 end
+
+# Set VI mode key bindings
+set -g fish_key_bindings fish_vi_key_bindings
+
+# Handy autocomplete binds in insert mode
+# - ctrl-space to accept single autocomplete words
+# - ctrl-f to accept entire line / go to end
+bind -M insert ctrl-space forward-bigword
+bind -M insert ctrl-f end-of-line accept-autosuggestion
 
 fzf --fish | source
 zoxide init fish --cmd cd | source
