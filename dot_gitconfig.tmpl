@@ -35,15 +35,8 @@
 
     # Display the number of commits per author in numerical order
     who = shortlog -sn --
-	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
-
-    sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)\"
-	#" syntax highlighter hack
-
-# [color]
-#     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
-#     ui = auto
-#     interactive = auto
+    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+    sl = stash list --pretty=format:'%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)'
 
 [credential]
     helper = osxkeychain
@@ -83,14 +76,17 @@
 	defaultBranch = main
 
 [core]
-    # Use custom `.gitignore` and `.gitattributes`
+  # Use custom `.gitignore` and `.gitattributes`
 	excludesfile = /Users/zjr/.gitignore
-    attributesfile = ~/.gitattributes
+  attributesfile = ~/.gitattributes
 	autocrlf = input
 	eol = lf
 	ignorecase = false
 	editor = /opt/homebrew/bin/nvim
-    pager = delta
+  pager = delta
+
+[pager]
+  blame = delta
 
 [include]
 	path = /Users/zjr/Developer/OSS/delta/themes.gitconfig
@@ -102,19 +98,19 @@
 [interactive]
     diffFilter = delta --color-only --features=interactive --syntax-theme=Catppuccin-frappe
 
-[delta]
-	tabs = 2
-	features = decorations
-	features = catppuccin-frappe
-	theme = Catppuccin-frappe
-	navigate = true
-	navigate-regex = ^(commit|added:|removed:|renamed:|Δ)
-
-[merge]
-	conflictstyle = diff3
-
 [diff]
 	colorMoved = default
+
+[delta]
+	tabs = 2
+	theme = Catppuccin-frappe
+	features = catppuccin-frappe
+	navigate = true
+  hyperlinks = true
+  map-styles = bold purple => syntax magenta, bold cyan => syntax blue # for colorMoved
+
+[merge]
+	conflictstyle = zdiff3
 
 [filter "cleanFishVars"]
 	clean = awk '!/SETUVAR _.*/{print}'
