@@ -84,6 +84,9 @@
 	ignorecase = false
 	editor = /opt/homebrew/bin/nvim
   pager = delta
+  {{ if eq .computerName "FCOH2J-WJR2F2VD" -}}
+  hooksPath = /Users/zacharyjrollyson/.config/git/hooks
+  {{- end }}
 
 [pager]
   blame = delta
