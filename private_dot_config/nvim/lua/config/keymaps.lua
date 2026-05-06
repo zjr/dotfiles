@@ -17,6 +17,3 @@ map("i", "<D-s>", "<Esc><cmd>w<cr>", { desc = "Return to normal mode and save bu
 -- Cycle through tabs
 map("n", "<C-Tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<S-C-Tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-
--- Indent list during insert mode with c-i
-map("i", "<C-i>", "<cmd>BulletDemote<cr>", { desc = "Increase Indent" })
