@@ -57,10 +57,8 @@ end
 set -g fish_key_bindings fish_vi_key_bindings
 
 # Handy autocomplete binds in insert mode
-# - ctrl-space to accept single autocomplete words
-# - ctrl-f to accept entire line / go to end
-bind -M insert ctrl-space forward-bigword
-bind -M insert ctrl-f end-of-line accept-autosuggestion
+bind -M insert ctrl-space forward-bigword # accept autocomplete word
+bind -M insert ctrl-f end-of-line accept-autosuggestion # accept full completion
 
 fzf --fish | source
 zoxide init fish --cmd cd | source
