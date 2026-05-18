@@ -6,7 +6,7 @@ return {
       -- fixing several things that _didn't_ fail, which is very annoying.
       --
       -- Ergo exclude errors that can't be fixed
-      opts.formatters.sqlfluff.args = { "fix", "-e", "LT05,RF04,AM04", "-" }
+      opts.formatters.sqlfluff.args = { "fix", "-e", "LT05,RF04,AM04,RF02", "-" }
     end,
   },
   {
