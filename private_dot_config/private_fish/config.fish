@@ -42,7 +42,9 @@ if [ -f /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fis
 end
 
 # 1Password plugins
-source /Users/zjr/.config/op/plugins.sh
+if [ -f /Users/zjr/.config/op/plugins.sh ]
+    source /Users/zjr/.config/op/plugins.sh
+end
 
 # Google Cloud SDK
 if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
