@@ -17,6 +17,7 @@ abbr -a -- tfa terraform apply
 
 abbr -a -- g git
 abbr -a -- gs git status
+abbr -a -- gd git diff
 abbr -a -- gpm "git checkout main && git pull"
 abbr -a -- gpb "prunebranch && git trim"
 abbr --command git co checkout

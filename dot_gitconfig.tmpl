@@ -99,18 +99,18 @@
 	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/mocha.gitconfig
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive --syntax-theme=Catppuccin-frappe
+  diffFilter = delta --color-only --features=interactive --syntax-theme=catppuccin-frappe
 
 [diff]
 	colorMoved = default
 
 [delta]
 	tabs = 2
-	theme = Catppuccin-frappe
 	features = catppuccin-frappe
 	navigate = true
   hyperlinks = true
-  map-styles = bold purple => syntax magenta, bold cyan => syntax blue # for colorMoved
+  # 15% primary, 85% background; for colorMoved
+  map-styles = bold purple => bold syntax "#4b465b", bold cyan => bold syntax "#3c4857"
 
 [merge]
 	conflictstyle = zdiff3
