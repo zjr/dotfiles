@@ -1,5 +1,5 @@
-{{ $name := promptString "email" "Zachary J. Rollyson" -}}
-{{ $email := promptString "email" "me@zjr.io" -}}
+{{ $name := promptString "name" "Zachary J. Rollyson" -}}
+{{ $email := promptString "email" "zachary.rollyson@gsa.gov" -}}
 {{ $gitkey := promptString "git signing key" -}}
 {{ $computerName := output "scutil" "--get" "ComputerName" | trim -}}
 
