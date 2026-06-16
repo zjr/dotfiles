@@ -76,27 +76,33 @@
 	defaultBranch = main
 
 [core]
-  # Use custom `.gitignore` and `.gitattributes`
-	excludesfile = /Users/zjr/.gitignore
-  attributesfile = ~/.gitattributes
-	autocrlf = input
-	eol = lf
-	ignorecase = false
-	editor = /opt/homebrew/bin/nvim
-  pager = delta
+  # for C.g caulking
   {{ if eq .computerName "FCOH2J-WJR2F2VD" -}}
-  hooksPath = /Users/zacharyjrollyson/.config/git/hooks
+  hooksPath = $HOME/.config/git/hooks
   {{- end }}
+
+  # fix windows/*nix line endings
+	eol = lf
+  autocrlf = input
+	ignorecase = false
+
+  # set standard tools
+  pager = delta
+  editor = /opt/homebrew/bin/nvim
+
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = $HOME/.gitignore
+  attributesfile = $HOME/.gitattributes
 
 [pager]
   blame = delta
 
 [include]
-	path = /Users/zjr/Developer/OSS/delta/themes.gitconfig
-	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/latte.gitconfig
-	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/frappe.gitconfig
-	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/macchiato.gitconfig
-	path = /Users/zjr/Developer/OSS/catppuccinDelta/themes/mocha.gitconfig
+	path = $HOME/OSS/delta/themes.gitconfig
+	path = $HOME/OSS/catppuccinDelta/themes/latte.gitconfig
+	path = $HOME/OSS/catppuccinDelta/themes/frappe.gitconfig
+	path = $HOME/OSS/catppuccinDelta/themes/macchiato.gitconfig
+	path = $HOME/OSS/catppuccinDelta/themes/mocha.gitconfig
 
 [interactive]
   diffFilter = delta --color-only --features=interactive --syntax-theme=catppuccin-frappe
@@ -117,5 +123,6 @@
 
 [filter "cleanFishVars"]
 	clean = awk '!/SETUVAR _.*/{print}'
+
 [diff "fish_variables"]
 	textconv = awk '!/SETUVAR _.*/{print}'
