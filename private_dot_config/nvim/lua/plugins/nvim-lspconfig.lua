@@ -2,8 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     inlay_hints = {
-      enabled = true,
-      exclude = { "go" }, -- filetypes for which you don't want to enable inlay hints
+      enabled = false,
     },
     servers = {
       gopls = {
@@ -34,6 +33,10 @@ return {
                 -- array: []
                 {
                   "[sS]tyles?\\s*=\\s*\\[([\\s\\S]+)\\]",
+                  "\\s*[\"'`]([^\"'`]*)[\"'`]",
+                },
+                {
+                  "[cC]lassNames?\\s*=\\s*\\[([\\s\\S]+)\\]",
                   "\\s*[\"'`]([^\"'`]*)[\"'`]",
                 },
                 {

@@ -10,8 +10,16 @@ show_milliseconds = false
 show_notifications = false
 min_time_to_notify = 45000
 
+[custom.shadowenv]
+command = "shadowenv prompt-widget" # Command used to get shadowenv status
+when = "[ -n \"$(shadowenv prompt-widget)\" ]" # Only display if the command returns true/exits cleanly
+format = '[\[${symbol}\]]($style)'
+symbol = "☂️" # Icon to display
+style = "blue bold" # Color and styling
+
 [aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+symbol = "☁️ "
+format = '\[[$symbol(\($region\))(\[$duration\])]($style)\]'
 
 [bun]
 format = '\[[$symbol($version)]($style)\]'
