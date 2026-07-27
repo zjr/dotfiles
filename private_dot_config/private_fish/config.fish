@@ -96,6 +96,9 @@ set -g fish_color_valid_path --underline
 # See https://github.com/fish-shell/fish-shell/issues/1891#issuecomment-71141210
 bind -M insert . expand-dot-to-parent-directory-path
 
+# Disable the annoying Docker "tips"
+set -gx DOCKER_CLI_HINTS false
+
 # Starship.rs prompt
 function starship_transient_prompt_func
     starship module character
