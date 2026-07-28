@@ -35,3 +35,5 @@ abbr -a -- doa doctl auth
 abbr -a -- doi doctl invoice
 abbr --command doctl a auth
 abbr --command doctl i invoice
+
+abbr -a -- avo aws-vault
