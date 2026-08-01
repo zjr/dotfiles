@@ -37,3 +37,4 @@ abbr --command doctl i invoice
 
 abbr -a -- tt task
 abbr -a -- tk task
+abbr -a -- avo aws-vault

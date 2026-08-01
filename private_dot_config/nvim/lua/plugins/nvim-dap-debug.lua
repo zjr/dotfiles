@@ -11,7 +11,7 @@ return {
       -- dapui.close({})
     end
     dap.listeners.before.event_exited["dapui_config"] = function()
-      dapui.close({})
+      -- dapui.close({})
     end
   end,
 }
