@@ -15,6 +15,9 @@ keybind = shift+ctrl+j=goto_split:down
 keybind = shift+ctrl+k=goto_split:up
 keybind = shift+ctrl+l=goto_split:right
 
+keybind = unconsumed:ctrl+tab=show_gtk_inspector
+keybind = unconsumed:shift+ctrl+tab=show_gtk_inspector
+
 window-padding-x = 0
 window-padding-y = 0
 window-padding-color = extend
