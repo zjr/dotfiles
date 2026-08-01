@@ -8,7 +8,6 @@ abbr -a -- nn nvim
 abbr -a -- vi nvim
 abbr -a -- pp pnpm
 abbr -a -- pe pnpm exec
-abbr -a -- tt tabtitle
 
 abbr -a -- tf terraform
 abbr -a -- tfi terraform init
@@ -35,3 +34,6 @@ abbr -a -- doa doctl auth
 abbr -a -- doi doctl invoice
 abbr --command doctl a auth
 abbr --command doctl i invoice
+
+abbr -a -- tt task
+abbr -a -- tk task
