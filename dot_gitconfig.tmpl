@@ -78,7 +78,7 @@
 [core]
   # for C.g caulking
   {{ if eq .computerName "FCOH2J-WJR2F2VD" -}}
-  hooksPath = $HOME/.config/git/hooks
+  hooksPath = {{ .chezmoi.homeDir }}/.config/git/hooks
   {{- end }}
 
   # fix windows/*nix line endings
@@ -91,18 +91,18 @@
   editor = /opt/homebrew/bin/nvim
 
   # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = $HOME/.gitignore
-  attributesfile = $HOME/.gitattributes
+  excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+  attributesfile = {{ .chezmoi.homeDir }}/.gitattributes
 
 [pager]
   blame = delta
 
 [include]
-	path = $HOME/OSS/delta/themes.gitconfig
-	path = $HOME/OSS/catppuccinDelta/themes/latte.gitconfig
-	path = $HOME/OSS/catppuccinDelta/themes/frappe.gitconfig
-	path = $HOME/OSS/catppuccinDelta/themes/macchiato.gitconfig
-	path = $HOME/OSS/catppuccinDelta/themes/mocha.gitconfig
+	path = {{ .chezmoi.homeDir }}/OSS/delta/themes.gitconfig
+	path = {{ .chezmoi.homeDir }}/OSS/catppuccinDelta/themes/latte.gitconfig
+	path = {{ .chezmoi.homeDir }}/OSS/catppuccinDelta/themes/frappe.gitconfig
+	path = {{ .chezmoi.homeDir }}/OSS/catppuccinDelta/themes/macchiato.gitconfig
+	path = {{ .chezmoi.homeDir }}/OSS/catppuccinDelta/themes/mocha.gitconfig
 
 [interactive]
   diffFilter = delta --color-only --features=interactive --syntax-theme=catppuccin-frappe
