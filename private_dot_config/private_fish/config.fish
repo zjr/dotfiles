@@ -35,6 +35,11 @@ shadowenv init fish | source
 set -gx PNPM_HOME /Users/zjr/Library/pnpm
 fish_add_path $PNPM_HOME
 
+# Doom Emacs
+if [ -d $XDG_CONFIG_HOME/emacs/bin ]
+    fish_add_path $XDG_CONFIG_HOME/emacs/bin
+end
+
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
 if [ -f /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
