@@ -18,7 +18,7 @@ fish_add_path /usr/local/sbin
 
 # Annoyingly complicated asdf sourcing
 set -l asdf_dir $ASDF_DATA_DIR
-[ -z $asdf_dir ] && set asdf_dir "$HOME/.asdf"
+[ -z "$asdf_dir" ] && set asdf_dir "$HOME/.asdf"
 fish_add_path -m "$asdf_dir/shims"
 
 # Go & Rust 
@@ -32,28 +32,28 @@ rbenv init - --no-rehash fish | source
 shadowenv init fish | source
 
 # Node / pnpm
-set -gx PNPM_HOME /Users/zjr/Library/pnpm
+set -gx PNPM_HOME "$XDG_CONFIG_HOME/Library/pnpm"
 fish_add_path $PNPM_HOME
 
 # Doom Emacs
-if [ -d $XDG_CONFIG_HOME/emacs/bin ]
-    fish_add_path $XDG_CONFIG_HOME/emacs/bin
+if [ -d "$XDG_CONFIG_HOME/emacs/bin" ]
+    fish_add_path "$XDG_CONFIG_HOME/emacs/bin"
 end
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-if [ -f /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
-    source /Users/zjr/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
+if [ -f "$XDG_CONFIG_HOME/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish" ]
+    source "$XDG_CONFIG_HOME/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish"
 end
 
 # 1Password plugins
-if [ -f /Users/zjr/.config/op/plugins.sh ]
-    source /Users/zjr/.config/op/plugins.sh
+if [ -f "$XDG_CONFIG_HOME/.config/op/plugins.sh" ]
+    source "$XDG_CONFIG_HOME/.config/op/plugins.sh"
 end
 
 # Google Cloud SDK
-if [ -f '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc' ]
-    source '/Users/zjr/Downloads/google-cloud-sdk/path.fish.inc'
+if [ -f "$XDG_CONFIG_HOME/Downloads/google-cloud-sdk/path.fish.inc" ]
+    source "$XDG_CONFIG_HOME/Downloads/google-cloud-sdk/path.fish.inc"
 end
 
 if not status is-interactive
