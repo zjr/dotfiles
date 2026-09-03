@@ -25,19 +25,15 @@ fish_add_path -m "$asdf_dir/shims"
 fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/.cargo/bin"
 
-# Ruby
-rbenv init - --no-rehash fish | source
-
-# Shadowenv, a lisp-ish automatic env switcher
-shadowenv init fish | source
-
 # Node / pnpm
 set -gx PNPM_HOME "$XDG_CONFIG_HOME/Library/pnpm"
 fish_add_path $PNPM_HOME
 
-# Doom Emacs
+# Doom Emacs path
 if [ -d "$XDG_CONFIG_HOME/emacs/bin" ]
     fish_add_path "$XDG_CONFIG_HOME/emacs/bin"
+else if [ -d ~/.emacs.d ]
+    fish_add_path ~/.emacs.d/bin
 end
 
 # tabtab source for yarn package
@@ -70,9 +66,21 @@ bind -M insert ctrl-f end-of-line accept-autosuggestion # accept full completion
 fzf --fish | source
 zoxide init fish --cmd cd | source
 
+# Ruby
+if command -v rbenv
+    rbenv init - --no-rehash fish | source
+end
+
+# Shadowenv, a lisp-ish automatic env switcher
+shadowenv init fish | source
+
 # Packer & BT for buildpack things
-source (pack completion --shell fish)
-eval (bt init fish) # https://github.com/dmikusa/binding-tool
+if command -v pack
+    source (pack completion --shell fish)
+end
+if command -v bt
+    eval (bt init fish) # https://github.com/dmikusa/binding-tool
+end
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
