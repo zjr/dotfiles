@@ -67,18 +67,21 @@ fzf --fish | source
 zoxide init fish --cmd cd | source
 
 # Ruby
-if command -v rbenv
+if command -v rbenv 1>/dev/null
     rbenv init - --no-rehash fish | source
 end
 
 # Shadowenv, a lisp-ish automatic env switcher
-shadowenv init fish | source
+if command -v shadowenv 1>/dev/null
+    shadowenv init fish | source
+end
 
 # Packer & BT for buildpack things
-if command -v pack
+if command -v pack 1>/dev/null
     source (pack completion --shell fish)
 end
-if command -v bt
+
+if command -v bt 1>/dev/null
     eval (bt init fish) # https://github.com/dmikusa/binding-tool
 end
 
