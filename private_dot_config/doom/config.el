@@ -130,3 +130,7 @@
 ;; Swap eval & M-x mapping
 (map! :leader :desc "M-x" :nv ";" 'execute-extended-command
       :leader :desc "Eval expression" :nv ":" 'pp-eval-expression)
+
+(with-eval-after-load 'apheleia
+  (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier-markdown)))
+
