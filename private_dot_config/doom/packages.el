@@ -52,5 +52,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-(package! mermaid-mode)
-(package! grip-mode)
+(package! mermaid-mode) ;; editing mermaid
+(package! grip-mode)    ;; for markdown previews, currently configured to use go-grip
+
+(package! drag-stuff)   ;; for moving lines up, down & around
