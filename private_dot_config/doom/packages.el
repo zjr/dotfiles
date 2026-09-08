@@ -53,3 +53,4 @@
 ;; (unpin! t)
 
 (package! mermaid-mode)
+(package! grip-mode)

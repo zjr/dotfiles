@@ -134,3 +134,6 @@
 (with-eval-after-load 'apheleia
   (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier-markdown)))
 
+
+(with-eval-after-load 'grip-mode
+  (setq grip-command 'go-grip))
