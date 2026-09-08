@@ -1,0 +1,5 @@
+icon: liquid-glass
+patches:
+  - frame-transparency
+  - aggressive-read-buffering
+inject_path: true
