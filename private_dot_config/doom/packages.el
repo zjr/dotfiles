@@ -56,3 +56,5 @@
 (package! grip-mode)    ;; for markdown previews, currently configured to use go-grip
 
 (package! drag-stuff)   ;; for moving lines up, down & around
+
+(package! catppuccin-theme) ;; for the vibes
