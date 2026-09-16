@@ -137,9 +137,47 @@
 (map! :leader :desc "M-x" :nv ";" 'execute-extended-command
       :leader :desc "Eval expression" :nv ":" 'pp-eval-expression)
 
+;; Adding Markdown to Apheleia's list
 (with-eval-after-load 'apheleia
   (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier-markdown)))
 
-
+;; Config Grip to use Go-Grip so I don't have to python
 (with-eval-after-load 'grip-mode
   (setq grip-command 'go-grip))
+
+(with-eval-after-load 'go-ts-mode
+  (setq tab-width 2))
+
+;; Config Magit Forge to use Workshop
+(with-eval-after-load 'forge
+  (add-to-list 'forge-alist '("workshop.cloud.gov"
+                              "workshop.cloud.gov/api/v4"
+                              "workshop.cloud.gov"
+                              forge-gitlab-repository)))
+
+;; Config auth source to use encryption
+(setq auth-sources '("~/.authinfo.gpg"))
+
+;; Config Code Review...
+;;
+;; ;; ...to use forge auth
+;; (setq code-review-auth-login-marker 'forge)
+;;
+;; ...to hopefully connect to the right place
+(setq code-review-gitlab-base-url "workshop.cloud.gov")
+(setq code-review-gitlab-host "workshop.cloud.gov/api")
+(setq code-review-gitlab-graphql-host "workshop.cloud.gov/api")
+;;
+;; ;; ...to use legacy ghub
+;; ;; see https://github.com/wandersoncferreira/code-review/issues/222#issuecomment-4668183228
+;; (with-eval-after-load 'code-review (require 'ghub-legacy))
+;; ;;
+;; (unless (fboundp 'ghub-graphql)
+;;   (require 'ghub-legacy))
+;; ;; ...to work with doom
+;; ;; see https://github.com/wandersoncferreira/code-review#doom-emacs-users
+;; (add-hook 'code-review-mode-hook
+;;           (lambda ()
+;;             ;; include *Code-Review* buffer into current workspace
+;;             (persp-add-buffer (current-buffer))))
+
