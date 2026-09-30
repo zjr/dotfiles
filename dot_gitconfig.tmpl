@@ -126,3 +126,11 @@
 
 [diff "fish_variables"]
 	textconv = awk '!/SETUVAR _.*/{print}'
+
+{{ if eq .computerName "FCOH2J-WJR2F2VD" -}}
+# for git forge
+[workshop "cloud.gov"]
+	user = zachary.rollyson
+[gitlab "workshop.cloud.gov"]
+	user = zachary.rollyson
+{{- end }}
