@@ -80,7 +80,6 @@ end
 if command -v pack 1>/dev/null
     source (pack completion --shell fish)
 end
-
 if command -v bt 1>/dev/null
     eval (bt init fish) # https://github.com/dmikusa/binding-tool
 end
