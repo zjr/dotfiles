@@ -57,4 +57,6 @@
 
 (package! drag-stuff)   ;; for moving lines up, down & around
 
-(package! catppuccin-theme) ;; for the vibes
+;; for the vibes
+(package! catppuccin-theme)
+(package! brutalist-theme)
