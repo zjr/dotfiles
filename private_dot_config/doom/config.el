@@ -145,8 +145,8 @@
 (with-eval-after-load 'grip-mode
   (setq grip-command 'go-grip))
 
-(with-eval-after-load 'go-ts-mode
-  (setq tab-width 2))
+(add-hook! 'go-ts-mode-hook :append (setq tab-width 2))
+
 
 ;; Config Magit Forge to use Workshop
 (with-eval-after-load 'forge
