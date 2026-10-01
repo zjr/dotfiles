@@ -56,13 +56,6 @@ if not status is-interactive
     return
 end
 
-# Set VI mode key bindings
-set -g fish_key_bindings fish_vi_key_bindings
-
-# Handy autocomplete binds in insert mode
-bind -M insert ctrl-space forward-bigword # accept autocomplete word
-bind -M insert ctrl-f end-of-line accept-autosuggestion # accept full completion
-
 fzf --fish | source
 zoxide init fish --cmd cd | source
 
@@ -107,10 +100,6 @@ set -g fish_color_selection white --bold '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
-# This is a user function, expands `..`'s
-# See https://github.com/fish-shell/fish-shell/issues/1891#issuecomment-71141210
-bind -M insert . expand-dot-to-parent-directory-path
-
 # Disable the annoying Docker "tips"
 set -gx DOCKER_CLI_HINTS false
 
@@ -120,16 +109,6 @@ function starship_transient_prompt_func
 end
 starship init fish --print-full-init | source
 enable_transience
-
-# Return to 'default' VI mode after executing command 
-# See https://github.com/fish-shell/fish-shell/issues/6046
-#
-# Note: transient_execute stops the shell from reprinting the prompt;
-#       use `execute` if you don't want that
-#
-# for mode in default insert visual
-#   bind -M $mode \r -m default transient_execute
-# end
 
 ###
 # Emacs VTerm Stuff
