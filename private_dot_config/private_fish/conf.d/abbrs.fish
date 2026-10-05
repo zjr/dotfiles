@@ -41,3 +41,6 @@ abbr -a -- avo aws-vault
 
 abbr -a -- jqr jq_preview
 abbr -a -- jqp jq_preview
+
+abbr -a -- emu "doom upgrade && doom sync && brew services restart emacs-plus"
+abbr -a -- emsr "brew services restart emacs-plus"
