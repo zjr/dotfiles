@@ -1,0 +1,203 @@
+tap "buildpacks/tap"
+tap "cloud-gov/cloudgov"
+tap "cloudfoundry/tap", trusted: { formulae: ["cf-cli"] }
+tap "d12frosted/emacs-plus", trusted: true
+tap "hashicorp/tap"
+tap "lifeart/tap"
+# CLI tool for working with Architecture Decision Records
+brew "adr-tools"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Python code formatter
+brew "black"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Utility to simplify running applications in docker containers
+brew "dockerize"
+# Maintain consistent coding style between multiple editors
+brew "editorconfig"
+# Spellchecker wrapping library
+brew "enchant"
+# Run arbitrary commands when files change
+brew "entr"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU awk utility
+brew "gawk"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
+# Audit git repos for secrets
+brew "gitleaks"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
+# Go tool to modify struct field tags
+brew "gomodifytags"
+# Language server for the Go language
+brew "gopls"
+# Automatically generate Go test boilerplate from your source code
+brew "gotests"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Vulnerability scanner for container images and filesystems
+brew "grype"
+# Cross-platform program for developing Haskell projects
+brew "haskell-stack"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@76"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@77"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Postgres C API library
+brew "libpq"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Powerful, lightweight programming language
+brew "lua"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Fast, flexible, config-based cli for linting Markdown/CommonMark files
+brew "markdownlint-cli2"
+# Language Server Protocol for Markdown
+brew "marksman"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Perl compatible regular expressions library
+brew "pcre"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Python dependency management tool
+brew "pipenv"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Object-relational database system
+brew "postgresql@15", link: true
+# Theme for zsh
+brew "powerlevel10k"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Fast Git hook manager written in Rust, drop-in alternative to pre-commit
+brew "prek"
+# Simple powerful testing with Python
+brew "pytest"
+# Ruby version manager
+brew "rbenv"
+# Persistent key-value database, with built-in net interface
+brew "redis", restart_service: :changed
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Experimental Rust compiler front-end for IDEs
+brew "rust-analyzer"
+# Reversible directory-local environment variable manipulations
+brew "shadowenv"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# Non-interactive SSH password auth
+brew "sshpass"
+# Cross-shell prompt for astronauts
+brew "starship"
+# CLI for generating a Software Bill of Materials from container images
+brew "syft"
+# Open source continuous file synchronization application
+brew "syncthing", restart_service: :changed
+# Official tldr client written in Rust
+brew "tlrc"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# JavaScript package manager
+brew "yarn"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# Plain text note-taking assistant
+brew "zk"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# A CLI for building apps using Cloud Native Buildpacks
+brew "buildpacks/tap/pack", trusted: true
+# An open source cli-tool for export and import of RDS databases in cloud.gov
+brew "cloud-gov/cloudgov/cg-manage-rds", trusted: true
+# Cloud Foundry CLI
+brew "cloudfoundry/tap/cf-cli@8", trusted: true
+# CredHub CLI
+brew "cloudfoundry/tap/credhub-cli", trusted: true
+# GNU Emacs text editor
+brew "d12frosted/emacs-plus/emacs-plus@31"
+# Terraform
+brew "hashicorp/tap/terraform", trusted: true
+# Securely stores and accesses AWS credentials in a development environment
+cask "aws-vault-binary"
+# Automated testing of webapps for Google Chrome
+cask "chromedriver"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Web browser
+cask "firefox"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-monaspace"
+# Markdown viewer with GitHub-flavored rendering
+cask "lifeart/tap/md-view", trusted: true
+# Multi-platform web browser
+cask "microsoft-edge"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/jessfraz/dockfmt"
+go "github.com/chrishrb/go-grip"
+go "github.com/mdempsky/gocode"
+go "github.com/x-motemen/gore/cmd/gore"
+go "olexsmir.xyz/json2go/cmd/json2go"
+go "github.com/riverqueue/river/cmd/river"
+go "riverqueue.com/riverui/cmd/riverui"
+go "github.com/k1LoW/tbls"
+go "github.com/jackc/tern/v2"
+cargo "mermaid-rs-renderer"
+npm "@mermaid-js/mermaid-cli"
+npm "js-beautify"
+npm "neovim"
+npm "prettier"
+npm "stylelint"
+npm "typescript-language-server"

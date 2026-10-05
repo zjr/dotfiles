@@ -1,0 +1,16 @@
+{
+  "trustedformulae": [
+    "buildpacks/tap/pack",
+    "cloud-gov/cloudgov/cg-manage-rds",
+    "cloudfoundry/tap/cf-cli",
+    "cloudfoundry/tap/cf-cli@8",
+    "cloudfoundry/tap/credhub-cli",
+    "hashicorp/tap/terraform"
+  ],
+  "trustedcasks": [
+    "lifeart/tap/md-view"
+  ],
+  "trustedtaps": [
+    "d12frosted/emacs-plus"
+  ]
+}
