@@ -60,3 +60,10 @@
 ;; for the vibes
 (package! catppuccin-theme)
 (package! brutalist-theme)
+
+;; different breadcrumb / where am i? packages
+(package! breadcrumb) ;; by eglot author
+(package! window-stool :disable t :recipe
+  (:host github
+   :repo "jaszhe/window-stool"
+   :files ("*.el"))) ;; more like nvim-treesitter-context
