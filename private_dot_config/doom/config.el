@@ -85,7 +85,7 @@
 (setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
 
 ;; Projectile Project Search path, where projects will load from.
-(setq projectile-project-search-path '("~/.config/doom/" ("~/Developer" . 4)))
+(setq projectile-project-search-path '("~/.config/doom/" "~/Developer/Current" "~/Developer/Experiments"))
 
 ;; Indentation settings
 (setq-default tab-width 2)
