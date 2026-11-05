@@ -5,6 +5,22 @@ return {
       enabled = false,
     },
     servers = {
+      zk = { enabled = false },
+      marksman = {
+        enabled = true,
+        capabilities = {},
+      },
+      markdown_oxide = {
+        enabled = false,
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      },
+
       gopls = {
         settings = {
           gopls = {

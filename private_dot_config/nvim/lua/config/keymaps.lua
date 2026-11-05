@@ -17,3 +17,18 @@ map("i", "<D-s>", "<Esc><cmd>w<cr>", { desc = "Return to normal mode and save bu
 -- Cycle through tabs
 map("n", "<C-Tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<S-C-Tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- Gitbrowse permalinks
+map({ "n", "x", "v" }, "<leader>gp", function()
+  Snacks.gitbrowse({ what = "permalink" })
+end, { desc = "Git Permalink (open)" })
+
+map({ "n", "x", "v" }, "<leader>gP", function()
+  Snacks.gitbrowse({
+    what = "permalink",
+    open = function(url)
+      vim.fn.setreg("+", url)
+    end,
+    notify = false,
+  })
+end, { desc = "Git Permalink (copy)" })

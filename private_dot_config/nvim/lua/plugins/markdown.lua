@@ -26,24 +26,29 @@ return {
     "tadmccorkle/markdown.nvim",
     ft = "markdown",
     keys = {
-      { "<localleader>e", "<Plug>(markdown_toggle_emphasis)", desc = "Toggle Emphasis", ft = "markdown" },
+      { "<localleader>ee", "<Plug>(markdown_toggle_emphasis)", desc = "Toggle Emphasis", ft = "markdown" },
       {
-        "<localleader>e",
+        "<localleader>ee",
         "<Plug>(markdown_toggle_emphasis_visual)",
         desc = "Toggle Emphasis",
         ft = "markdown",
         mode = "v",
       },
-      { "<localleader>ee", "<Plug>(markdown_toggle_emphasis_line)", desc = "Toggle Emphasis Line", ft = "markdown" },
-      { "<localleader>ce", "<Plug>(markdown_change_emphasis)", desc = "Change Emphasis", ft = "markdown" },
-      { "<localleader>de", "<Plug>(markdown_delete_emphasis)", desc = "Delete Emphasis", ft = "markdown" },
+      { "<localleader>eE", "<Plug>(markdown_toggle_emphasis_line)", desc = "Toggle Emphasis Line", ft = "markdown" },
+      { "<localleader>ec", "<Plug>(markdown_change_emphasis)", desc = "Change Emphasis", ft = "markdown" },
+      { "<localleader>ed", "<Plug>(markdown_delete_emphasis)", desc = "Delete Emphasis", ft = "markdown" },
+
       { "<localleader>l", "<Plug>(markdown_add_link)", desc = "Add Link", ft = "markdown" },
       { "<localleader>l", "<Plug>(markdown_add_link_visual)", desc = "Add Link", ft = "markdown", mode = "v" },
+
       { "<localleader>gx", "<Plug>(markdown_follow_link)", desc = "Follow Link", ft = "markdown" },
-      { "<localleader>gh", "<Plug>(markdown_go_current_heading)", desc = "Go to Heading", ft = "markdown" },
-      { "<localleader>gp", "<Plug>(markdown_go_parent_heading)", desc = "Go to Parent", ft = "markdown" },
-      { "<localleader>g;", "<Plug>(markdown_go_next_heading)", desc = "Go to Next Heading", ft = "markdown" },
-      { "<localleader>d,", "<Plug>(markdown_go_prev_heading)", desc = "Go to Prev Heading", ft = "markdown" },
+
+      { "[h", "<Plug>(markdown_go_parent_heading)", desc = "Parent Heading", ft = "markdown" },
+      { "[H", "<Plug>(markdown_go_current_heading)", desc = "Current Heading", ft = "markdown" },
+
+      { "[$", "<Plug>(markdown_go_prev_heading)", desc = "Prev Heading", ft = "markdown" },
+      { "]$", "<Plug>(markdown_go_next_heading)", desc = "Next Heading", ft = "markdown" },
+
       { "<localleader>o", "<cmd>MDListItemBelow<cr>", desc = "Inert List Item Below", ft = "markdown" },
       { "<localleader>O", "<cmd>MDListItemAbove<cr>", desc = "Inert List Item Above", ft = "markdown" },
     },

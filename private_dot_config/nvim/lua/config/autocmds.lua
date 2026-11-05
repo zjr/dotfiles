@@ -26,3 +26,26 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "yaml.gitlab"
   end,
 })
+
+-- This is slated for v0.13 release (current 12.5)
+-- local last ---@type vim.event.cmdatom.data?
+--
+-- vim.api.nvim_create_autocmd("CmdAtom", {
+--   callback = function(ev)
+--     -- Skip edits, and the "," mapping itself.
+--     local motion = ev.data.moved or ev.match == "motion"
+--
+--     if motion and not (ev.data.changed or ev.data.lhs == ",") then
+--       last = ev.data
+--     end
+--   end,
+-- })
+--
+-- vim.keymap.set("n", ",", function()
+--   -- CmdAtom is deferred; schedule the replay, in case "," follows a motion.
+--   vim.schedule(function()
+--     if last then
+--       vim.api.nvim_feedkeys(last.keys or last.lhs, last.keys and "n" or "m", false)
+--     end
+--   end)
+-- end)

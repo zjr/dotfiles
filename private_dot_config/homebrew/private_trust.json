@@ -7,9 +7,6 @@
     "cloudfoundry/tap/credhub-cli",
     "hashicorp/tap/terraform"
   ],
-  "trustedcasks": [
-    "lifeart/tap/md-view"
-  ],
   "trustedtaps": [
     "d12frosted/emacs-plus"
   ]
