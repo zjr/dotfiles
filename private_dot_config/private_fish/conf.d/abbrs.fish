@@ -44,3 +44,11 @@ abbr -a -- jqp jq_preview
 
 abbr -a -- emu "doom upgrade && doom sync && brew services restart emacs-plus"
 abbr -a -- emsr "brew services restart emacs-plus"
+
+abbr -a -- kk zapp
+abbr -a -- kku zapp update
+abbr -a -- kkf zapp flash
+abbr -a -- key zapp
+
+abbr -a -- cfto "cf t | grep org | awk '{print \$2}'"
+abbr -a -- cfts "cf t | grep space | awk '{print \$2}'"
