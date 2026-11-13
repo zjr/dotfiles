@@ -12,7 +12,6 @@ OPTIONS:
 "
 
 function cfenvjson
-
     argparse s/services a/app -- $argv
     or return
 
@@ -25,5 +24,5 @@ function cfenvjson
     end
 
     cf env "$argv[1]" |
-        sed -n -e '/${q}/,/^}$/{s/VCAP.*/{/;p;}'
+        sed -n -e "/$q/,/^}\$/{s/VCAP.*/{/;p;}"
 end
