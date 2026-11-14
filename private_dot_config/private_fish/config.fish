@@ -109,8 +109,7 @@ function starship_transient_prompt_func
 end
 starship init fish --print-full-init | source
 
-# @fish-lsp-disable-next-line 7001
-enable_transience
+set -g fish_transient_prompt 1
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
