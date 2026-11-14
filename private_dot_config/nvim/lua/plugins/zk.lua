@@ -1,7 +1,7 @@
 return {
   {
     "zk-org/zk-nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require("zk").setup({
         picker = "fzf_lua",
@@ -40,10 +40,10 @@ return {
         -- etc, see `:h vim.lsp.start_client()`
       },
       -- automatically attach buffers in a zk notebook that match the given filetypes
-      auto_attach = {
-        enabled = true,
-        filetypes = { "markdown" },
-      },
+      -- auto_attach = {
+      --   enabled = true,
+      --   filetypes = { "markdown" },
+      -- },
     },
   },
 }

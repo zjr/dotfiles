@@ -39,8 +39,8 @@ abbr -a -- tt task
 abbr -a -- tk task
 abbr -a -- avo aws-vault
 
-abbr -a -- jqr jq_preview
-abbr -a -- jqp jq_preview
+abbr -a -- jqq jqpreview
+abbr -a -- jqp jqpreview
 
 abbr -a -- emu "doom upgrade && doom sync && brew services restart emacs-plus"
 abbr -a -- emsr "brew services restart emacs-plus"
@@ -52,3 +52,10 @@ abbr -a -c npx -c quartz -- p plugin
 abbr -a -c npx -c quartz -- pa 'plugin add'
 abbr -a -c npx -c quartz -- pr 'plugin remove'
 abbr -a -c npx -c quartz -- pi 'plugin install'
+abbr -a -- kk zapp
+abbr -a -- kku zapp update
+abbr -a -- kkf zapp flash
+abbr -a -- key zapp
+
+abbr -a -- cfto "cf t | grep org | awk '{print \$2}'"
+abbr -a -- cfts "cf t | grep space | awk '{print \$2}'"
