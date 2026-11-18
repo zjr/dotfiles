@@ -1,3 +1,12 @@
+local has_words_before = function()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  if col == 0 then
+    return false
+  end
+  local line = vim.api.nvim_get_current_line()
+  return line:sub(col - 1, col):match("^%s+$") == nil
+end
+
 return {
   "saghen/blink.cmp",
   opts = {
@@ -9,11 +18,10 @@ return {
       ["<Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
-            -- insert currently selected item
+            -- insert only if manually selected
             return cmp.accept()
-          else
-            -- insert selected item, or select the first if none
-            return cmp.select_and_accept()
+          elseif has_words_before() then
+            return cmp.insert_next()
           end
         end,
         "snippet_forward",

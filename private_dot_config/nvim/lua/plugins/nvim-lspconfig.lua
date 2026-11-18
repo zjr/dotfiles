@@ -1,70 +1,89 @@
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    inlay_hints = {
-      enabled = false,
+  {
+    "SmiteshP/nvim-navbuddy",
+    lazy = true,
+    keys = {
+      { "<leader>s<space>", "<cmd>Navbuddy<cr>", desc = "Navbuddy Symbols" },
     },
-    servers = {
-      zk = { enabled = false },
-      marksman = {
-        enabled = true,
-        capabilities = {},
-      },
-      markdown_oxide = {
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = {
         enabled = false,
-        capabilities = {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
+      },
+      dependencies = {
+        {
+          "SmiteshP/nvim-navbuddy",
+          dependencies = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+          },
+          opts = { lsp = { auto_attach = true } },
+        },
+      },
+      servers = {
+        zk = { enabled = false },
+        marksman = {
+          enabled = true,
+          capabilities = {},
+        },
+        markdown_oxide = {
+          enabled = false,
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
             },
           },
         },
-      },
 
-      gopls = {
-        settings = {
-          gopls = {
-            buildFlags = { "-tags=integration" },
-          },
-        },
-      },
-      yamlls = {
-        settings = {
-          yaml = {
-            customTags = {
-              "!reference sequence", -- necessary for gitlab-ci.yaml files
+        gopls = {
+          settings = {
+            gopls = {
+              buildFlags = { "-tags=integration" },
             },
           },
         },
-      },
-      tailwindcss = {
-        settings = {
-          tailwindCSS = {
-            experimental = {
-              classRegex = {
-                -- strings: ('"`)
-                { "\\b\\w*Style\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
-                { "\\b\\w*Class\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
-                { "\\b\\w*Classes\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
-                -- array: []
-                {
-                  "[sS]tyles?\\s*=\\s*\\[([\\s\\S]+)\\]",
-                  "\\s*[\"'`]([^\"'`]*)[\"'`]",
-                },
-                {
-                  "[cC]lassNames?\\s*=\\s*\\[([\\s\\S]+)\\]",
-                  "\\s*[\"'`]([^\"'`]*)[\"'`]",
-                },
-                {
-                  "[cC]lasse?s?\\s*=\\s*\\[([\\s\\S]+)\\]",
-                  "\\s*[\"'`]([^\"'`]*)[\"'`]",
-                },
-                -- POJO
-                { ":\\s*?[\"'`]([^\"'`]*).*?,?" },
-                -- nested object: { classNames: {}}
-                {
-                  "classNames:\\s*{([\\s\\S]*?)}",
-                  "\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?",
+        yamlls = {
+          settings = {
+            yaml = {
+              customTags = {
+                "!reference sequence", -- necessary for gitlab-ci.yaml files
+              },
+            },
+          },
+        },
+        tailwindcss = {
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  -- strings: ('"`)
+                  { "\\b\\w*Style\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
+                  { "\\b\\w*Class\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
+                  { "\\b\\w*Classes\\b\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]" },
+                  -- array: []
+                  {
+                    "[sS]tyles?\\s*=\\s*\\[([\\s\\S]+)\\]",
+                    "\\s*[\"'`]([^\"'`]*)[\"'`]",
+                  },
+                  {
+                    "[cC]lassNames?\\s*=\\s*\\[([\\s\\S]+)\\]",
+                    "\\s*[\"'`]([^\"'`]*)[\"'`]",
+                  },
+                  {
+                    "[cC]lasse?s?\\s*=\\s*\\[([\\s\\S]+)\\]",
+                    "\\s*[\"'`]([^\"'`]*)[\"'`]",
+                  },
+                  -- POJO
+                  { ":\\s*?[\"'`]([^\"'`]*).*?,?" },
+                  -- nested object: { classNames: {}}
+                  {
+                    "classNames:\\s*{([\\s\\S]*?)}",
+                    "\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?",
+                  },
                 },
               },
             },

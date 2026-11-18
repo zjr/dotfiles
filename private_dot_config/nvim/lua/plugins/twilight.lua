@@ -1,5 +1,6 @@
 return {
   "folke/twilight.nvim",
+  lazy = true,
   opts = {
     dimming = {
       alpha = 0.25, -- amount of dimming

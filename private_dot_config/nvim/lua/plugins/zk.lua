@@ -4,7 +4,7 @@ return {
     lazy = true,
     config = function()
       require("zk").setup({
-        picker = "fzf_lua",
+        picker = "snacks",
       })
     end,
     keys = {
