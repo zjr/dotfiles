@@ -16,11 +16,6 @@ fish_add_path /usr/local/sbin
 # Source Homebrew early so it can be overrode by version managers
 /opt/homebrew/bin/brew shellenv | source
 
-# Annoyingly complicated asdf sourcing
-set -l asdf_dir $ASDF_DATA_DIR
-[ -z "$asdf_dir" ] && set asdf_dir "$HOME/.asdf"
-fish_add_path -m "$asdf_dir/shims"
-
 # Go & Rust 
 fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/.cargo/bin"
