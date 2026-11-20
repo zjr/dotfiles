@@ -27,7 +27,7 @@ return {
         "snippet_forward",
         "fallback",
       },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<S-Tab>"] = { "insert_prev", "snippet_backward", "fallback" },
 
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
@@ -46,14 +46,18 @@ return {
     },
     completion = {
       list = {
-        selection = {
-          -- turns off completion pre-selection when completing parts
-          -- of a snippet, e.g. tabbing through function arguments
-          preselect = function()
-            return not require("blink.cmp").snippet_active({ direction = 1 })
-          end,
-        },
+        cycle = { from_top = false },
+        selection = { preselect = false },
       },
+      -- list = {
+      --   selection = {
+      --     -- turns off completion pre-selection when completing parts
+      --     -- of a snippet, e.g. tabbing through function arguments
+      --     preselect = function()
+      --       return not require("blink.cmp").snippet_active({ direction = 1 })
+      --     end,
+      --   },
+      -- },
     },
   },
 }
